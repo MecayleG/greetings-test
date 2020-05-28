@@ -1,4 +1,4 @@
-describe("The Greetings exercise", function(){
+describe("The Greetings exercise should greet user in selected language", function(){
 	it("should greet Mecayle in English", function(){
 		let greetFunction = TheGreetFunction();
 		var valSelected = "English";
@@ -24,5 +24,4 @@ describe("The Greetings exercise", function(){
 		var theName = "";
 		assert.equal(greetFunction.langButton(valSelected, theName), "enter name!");
 	});
-	
 });
