@@ -1,4 +1,4 @@
-describe("The Greetings exercise should greet user in selected language", function(){
+describe("The Greetings exercise", function(){
 	it("should greet Mecayle in English", function(){
 		let greetFunction = TheGreetFunction();
 		var valSelected = "English";
@@ -24,4 +24,19 @@ describe("The Greetings exercise should greet user in selected language", functi
 		var theName = "";
 		assert.equal(greetFunction.langButton(valSelected, theName), "enter name!");
 	});
+	describe("It should also add new names to the array", function(){
+		it("should add Lila to array", function(){
+		let greetFunction = TheGreetFunction();
+		var nameEntered = "lila";
+		var arrayNames =   {array : ["john", "sally", "mike"]};
+		assert.deepEqual(greetFunction.namesStored(nameEntered, arrayNames),  {array : ["john", "sally", "mike", "lila"]});
+	});
+	it("should add Amy to array", function(){
+		let greetFunction = TheGreetFunction();
+		var nameEntered = "amy";
+		var arrayNames =   {array : ["john", "sally", "mike"]};
+		assert.deepEqual(greetFunction.namesStored(nameEntered, arrayNames),  {array : ["john", "sally", "mike", "amy"]});
+	});
+	})
 });
+
