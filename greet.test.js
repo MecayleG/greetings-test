@@ -1,5 +1,6 @@
 describe("The Greetings exercise", function(){
-	it("should greet Mecayle in English", function(){
+	describe("the langButton function", function(){
+		it("should greet Mecayle in English", function(){
 		let greetFunction = TheGreetFunction();
 		var valSelected = "English";
 		var theName = "Mecayle";
@@ -24,19 +25,49 @@ describe("The Greetings exercise", function(){
 		var theName = "";
 		assert.equal(greetFunction.langButton(valSelected, theName), "enter name!");
 	});
-	describe("It should also add new names to the array", function(){
-		it("should add Lila to array", function(){
-		let greetFunction = TheGreetFunction();
-		var nameEntered = "lila";
-		var arrayNames =   {array : ["john", "sally", "mike"]};
-		assert.deepEqual(greetFunction.namesStored(nameEntered, arrayNames),  {array : ["john", "sally", "mike", "lila"]});
 	});
-	it("should add Amy to array", function(){
-		let greetFunction = TheGreetFunction();
-		var nameEntered = "amy";
-		var arrayNames =   {array : ["john", "sally", "mike"]};
-		assert.deepEqual(greetFunction.namesStored(nameEntered, arrayNames),  {array : ["john", "sally", "mike", "amy"]});
+	describe("the counter function", function(){
+		it("should show 3 names are in the array", function(){
+		let greetFunction = TheGreetFunction(["lila", "likla", "jan"]);
+	
+		assert.deepEqual(greetFunction.counter(), 3);
+		});
+		it("should show 4 names are in the array", function(){
+		let greetFunction = TheGreetFunction(["lila", "likla", "jan", "mecayle"]);
+	
+		assert.deepEqual(greetFunction.counter(), 4);
+		});
+		it("should show 6 names are in the array", function(){
+		let greetFunction = TheGreetFunction(["lila", "likla", "jan", "mecayle", "jay", "kay"]);
+	
+		assert.deepEqual(greetFunction.counter(), 6);
 	});
-	})
+	});
+	describe("the namestored function", function(){
+		it("should add the name John if it has not been entered", function(){
+			let greetFunction = TheGreetFunction(["lila", "likla", "jan", "mecayle"]);
+			var nameEntered = "john";
+			greetFunction.namesStored(nameEntered)
+			assert.deepEqual(greetFunction.alreadyGreeted(), ["lila", "likla", "jan", "mecayle", "john"] )
+		});
+		it("should add the name Mary if it has not been entered", function(){
+			let greetFunction = TheGreetFunction(["lila", "likla", "jan", "mecayle", "john"]);
+			var nameEntered = "mary";
+			greetFunction.namesStored(nameEntered)
+			assert.deepEqual(greetFunction.alreadyGreeted(), ["lila", "likla", "jan", "mecayle", "john", "mary"] )
+		});
+		it("should not add the name John again if has already been entered", function(){
+			let greetFunction = TheGreetFunction(["lila", "likla", "jan", "mecayle", "john"]);
+			var nameEntered = "john";
+			greetFunction.namesStored(nameEntered)
+			assert.deepEqual(greetFunction.alreadyGreeted(), ["lila", "likla", "jan", "mecayle", "john"] )
+		});
+		it("should not add the name Mary again if has already been entered", function(){
+			let greetFunction = TheGreetFunction(["lila", "likla", "jan", "mecayle", "mary"]);
+			var nameEntered = "mary";
+			greetFunction.namesStored(nameEntered)
+			assert.deepEqual(greetFunction.alreadyGreeted(), ["lila", "likla", "jan", "mecayle", "mary"] )
+		});
+	});
 });
 
