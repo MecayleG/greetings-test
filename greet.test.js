@@ -69,5 +69,11 @@ describe("The Greetings exercise", function(){
 			assert.deepEqual(greetFunction.alreadyGreeted(), ["lila", "likla", "jan", "mecayle", "mary"] )
 		});
 	});
+	describe("the lettersOnly function", function(){
+			it("should return a name without numbers and special characters", function(){
+				let greetFunction = TheGreetFunction();
+				assert.deepEqual(greetFunction.lettersOnly("#Meek$24"), "meek");
+				assert.deepEqual(greetFunction.lettersOnly("$y*o&u_s-u^c#k"), "yousuck");
+			});
+		});
 });
-
